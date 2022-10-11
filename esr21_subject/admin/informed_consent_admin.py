@@ -95,7 +95,8 @@ class InformedConsentAdmin(ModelAdminBasicMixin, ModelAdminMixin,
                 'confirm_identity',
                 'consent_to_participate',
                 'optional_sample_collection',
-                'version'
+                'version',
+                'cohort'
             ),
         }),
         ('Review Questions', {
@@ -168,7 +169,7 @@ class InformedConsentAdmin(ModelAdminBasicMixin, ModelAdminMixin,
         return super_actions
 
     def get_readonly_fields(self, request, obj=None):
-        return super().get_readonly_fields(request, obj=obj) + audit_fields + ('version', )
+        return super().get_readonly_fields(request, obj=obj) + audit_fields + ('version', 'cohort', )
 
     def render_change_form(self, request, context, add=False, change=False, form_url='', obj=None):
         context.update({

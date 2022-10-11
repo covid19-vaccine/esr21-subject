@@ -92,6 +92,11 @@ class InformedConsent(ConsentModelMixin, SiteModelMixin,
         validators=[eligible_if_yes, ],
         help_text='Participant is not eligible if no')
 
+    cohort = models.CharField(
+        verbose_name='Cohort enrolled',
+        max_length=15,
+        null=True, blank=True)
+
     gender_other = OtherCharField()
 
     objects = InformedConsentManager()
